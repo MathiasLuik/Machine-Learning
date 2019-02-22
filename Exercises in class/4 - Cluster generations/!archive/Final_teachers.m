@@ -9,7 +9,6 @@ cov(2).matrix = [2, -2; -2, 6];
 cov(3).matrix = [1, -0.5; -0.5, 1];
 cov(4).matrix = [1, -0.5; -0.5, 1];
 cov(5).matrix = [1, -0.5; -0.5, 1];
-%cov(6).matrix = [2, -2; -0.5, 3];
 
 % coorect way to define 'matrices defining the distributions
 eVect = [0.615412209402636,-0.788205438016109;-0.788205438016109,-0.615412209402636]
@@ -27,15 +26,13 @@ mean(2).mu = [1,0];
 mean(3).mu = [-5,-2];
 mean(4).mu = [5,3];
 mean(5).mu = [6,2];
-%mean(6).mu = [5,1];
 
 % sample sizes
 n(1) = 500;
 n(2) = 700;
 n(3) = 100;
-n(4) = 500;
-n(5) = 600;
-%n(6) = 300;
+n(4) = 100;
+n(5) = 100;
 
 for i=1:5
     D(i).set = mvnrnd(mean(i).mu,cov(i).matrix,n(i)); 
@@ -69,18 +66,14 @@ for i=1:tLength
     y(1:thicknes,1)=tSlice(:,2)-t(i)^2+5.5;
     DS2 = [DS2;x,y];
 end
-DS=[DS1;DS2]
+
 fh(2)=figure(2);
 clf(fh(2))
-%scatter(DS1(:,1),DS1(:,2))
-
-scatter(DS(:,1),DS(:,2))
+scatter(DS1(:,1),DS1(:,2))
 hold on
-    %scatter(DS2(:,1),DS2(:,2))
+scatter(DS2(:,1),DS2(:,2))
+hold on
     
-    %hold on
-
-
 
 % join the sets 
 DSS = [DS1;DS2];
