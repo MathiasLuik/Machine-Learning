@@ -14,7 +14,7 @@ for i=3:8
         amountOfClusters=i;
     end
 end
-fprintf('amountOfClusters %d\n',amountOfClusters)
+%fprintf('kmeans %d\n',kmeans)
 kMeansCalc=kmeans(data,8);
 %silicCalc=silhouette(data, kMeansCalc)
 %average=mean(silicCalc)
